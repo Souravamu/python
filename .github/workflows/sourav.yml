@@ -42,10 +42,8 @@ jobs:
 
     # Step 6: Deploy to Heroku (only on push to master, not on pull requests)
     - name: Deploy to Heroku
-      if: github.event_name == 'push'
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        HEROKU_APP_NAME: cicdsourav
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}  # Correct syntax
       run: |
         git remote add heroku https://git.heroku.com/cicdsourav.git
-        git push heroku master
+        git push heroku main
