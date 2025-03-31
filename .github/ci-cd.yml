@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ master ]  # Runs when you push to 'main' branch
+    branches: [ master ]  # Changed from 'main' to 'master'
 
 jobs:
   build-and-deploy:
@@ -32,4 +32,4 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
         git remote add heroku https://git.heroku.com/cicdsourav.git
-        git push heroku main
+        git push heroku master  # Changed from 
