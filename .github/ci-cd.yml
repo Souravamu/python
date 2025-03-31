@@ -1,0 +1,27 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]  # Runs when you push to 'main' branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # Virtual machine provided by GitHub
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Clones your repo
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Node version (change if needed)
+
+    - name: Install dependencies
+      run: npm install  # Installs project dependencies
+
+    - name: Run tests
+      run: npm test  # Runs your test suite (if you have one)
+
+    - name: Build app
+      run: npm run build  # Builds your app (if required)
